@@ -1,0 +1,9 @@
+ROUTINE %ZSTART
+%ZSTART	; mlb - Start Up routine for docker
+	Quit
+SYSTEM	;
+	If ##class(%File).DirectoryExists("C:\Code") {
+		Do $system.OBJ.Load("C:\Code\Installer.xml","ck")
+		Do ##class(VX130.Installer).setup()
+	}
+	Quit
